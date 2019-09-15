@@ -14,6 +14,28 @@ public class SinglyLinkedList {
         }
     }
 
+    void addSorted(int data){
+        if(head == null){
+            head = new Node(data);
+        }else{
+            Node prev = null,n1= head;
+            while(n1!=null){
+                if(n1.data>data)
+                    break;
+                prev = n1;
+                n1 = n1.next;
+            }
+            Node n2 = new Node(data);
+            n2.next = n1;
+            if(prev == null){
+                head = n2;
+            }else{
+                prev.next = n2;
+            }
+        }
+    }
+
+
     void disp(){
         Node n1 = head;
         while(n1!=null){
@@ -36,10 +58,12 @@ public class SinglyLinkedList {
 
     public static void main(String[] args){
         SinglyLinkedList sl  =new SinglyLinkedList();
-        sl.add(30); sl.add(40); sl.add(56); sl.add(90);
+        //sl.add(30); sl.add(40); sl.add(56); sl.add(90);
+        sl.addSorted(43); sl.addSorted(33); 
+        sl.addSorted(45); sl.addSorted(10);
         sl.disp();
-        sl.reverse();
-        sl.disp();
+        //sl.reverse();
+        //sl.disp();
     }
 }
 

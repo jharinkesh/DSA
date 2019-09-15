@@ -1,8 +1,8 @@
 def firstIndex(arr, x, start):
     n = len(arr)
-    if(n == 0 or start == n):
+    if n == 0 or start == n:
         return -1
-    if(arr[start] == x):
+    if arr[start] == x:
         return start
     else:
         return firstIndex(arr,x,start+1)
