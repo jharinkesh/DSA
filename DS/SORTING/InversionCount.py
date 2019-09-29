@@ -33,7 +33,7 @@ for m in range(0,t):
 t = int(input())
 for m in range(0,t):
     n = int(input())
-    if n>=1 and n<=100000:
+    if n >= 1 and n <= 100000:
         a = [int(x) for x in input().strip().split(' ')]
         #a = [1,5,3,6,4]
         n = len(a)

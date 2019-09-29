@@ -113,18 +113,53 @@ public class SinglyLinkedList {
         return found;
     }
 
+     Node mergeSort(Node head) {
+        if(head == null || head.next == null)
+            return head;
+        Node mid = getMid(head), second_head = mid.next; 
+        mid.next = null;
+        return merge(mergeSort(head), mergeSort(second_head));
+    }
+
+    Node merge(Node head1, Node head2){
+        Node result = new Node(0), current = result;
+        while(head1 != null && head2 != null) {
+            if(head1.data< head2.data) {
+                current.next = head1;
+                head1 = head1.next;
+            }else {
+                current.next = head2;
+                head2 = head2.next;
+            }
+            current = current.next;
+        }
+        if(head1 != null) current.next = head1;
+        if(head2 != null) current.next = head2;
+        return result.next;
+    }
+
+    Node getMid(Node head) {
+        Node slow = head, fast = head.next;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     public static void main(String[] args){
         SinglyLinkedList sl  =new SinglyLinkedList();
         //sl.createLoopedList();
         //sl.detectCycle();
-        sl.add(30); sl.add(40); sl.add(56); sl.add(90);
+        sl.add(67); sl.add(21); sl.add(56); sl.add(90);
         // sl.detectCycle();
-        System.out.println(sl.search(sl.head, 98));
+        //System.out.println(sl.search(sl.head, 98));
         // sl.addSorted(43); sl.addSorted(33); 
         // sl.addSorted(45); sl.addSorted(10);
-        //sl.disp();
+        sl.disp();
+        sl.head  = sl.mergeSort(sl.head);
         //sl.reverse();
-        //sl.disp();
+        sl.disp();
         // sl.addFirst(10);
         //sl.addLast(99);
         //sl.addLast(102);
