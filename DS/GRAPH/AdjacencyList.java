@@ -23,9 +23,9 @@ public class AdjacencyList {
         for(int j = 0;j<list1.size();j++){
             System.out.print(" -> "+list1.get(j).key);
         }
-     }
+     }                  
     }
-
+    
     public static void main(String[] args) {
         AdjacencyList al = new AdjacencyList(5);
         al.insert(0,1);

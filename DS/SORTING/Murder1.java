@@ -1,5 +1,4 @@
 class Murder1{
-
     public static void main(String... args){
         int[] stairs = {1,5,3,6,4};
         int total = 0;

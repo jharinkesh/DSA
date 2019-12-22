@@ -54,7 +54,7 @@ public class SinglyLinkedList {
             n1 = nextNode;
         }
         head = prev;
-    }
+     }
 
      void addFirst(int data){
         if(head == null){
